@@ -68,6 +68,7 @@ class ActivateAccountView(View):
 def handlelogin(request):
     if request.method=="POST":
         
+        
         username=request.POST['email']
         userpassword=request.POST['pass1']
         myuser=authenticate(username=username, password = userpassword)
