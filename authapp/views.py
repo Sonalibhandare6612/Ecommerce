@@ -8,7 +8,9 @@ from .utils import TokenGenerator, generate_token
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
 from django.conf import settings
-from django.contrib.auth import authenticate, login, logout 
+from django.contrib.auth import authenticate, login, logout
+
+ 
 
 # Create your views here.
 def signup(request):
@@ -49,6 +51,8 @@ def signup(request):
                 
     else:
         return render(request, "signup.html")
+    
+    
               
 class ActivateAccountView(View):
     def get(self, request, uidb64,token):
