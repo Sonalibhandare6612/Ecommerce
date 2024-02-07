@@ -49,7 +49,7 @@ Check Out
                 <h2>Step 2 - Enter Address & Other Details :</h2>
                 <form method="post" action="/checkout/">
                     {% csrf_token %}
-                    <input type="hidden" name="itemsJson" id="itemsJson">
+                    <input type="hidden" name="itemJson" id="itemJson">
 
                     <input type="hidden" name="amt" id="amt">
                     <div class="form-row">
@@ -57,50 +57,51 @@ Check Out
                             <label for="inputname">Name</label>
                             <input type="text" class="form-control mt-3" id="name" name="name" placeholder="Name"
                                 required>
-                        </div>
+                        </div> <br>
+
                         <div class="form-group col-md-6">
                             <label for="inputEmail">Email</label>
                             <input type="email" class="form-control mt-3" id="email" name="email" placeholder="Email"
                                 value="{{user.email}}" required>
-
-                        </div>
+                        </div> <br>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Address</label>
                             <input type="text" class="form-control mt-3" id="address1" name="address1"
                                 placeholder="1234 Main St" required>
-                        </div>
+                        </div> <br>
                         <div class="form-group col-md-6">
                             <label for="inputAddress">Address Line 2</label>
                             <input type="text" class="form-control mt-3" id="address2" name="address2"
                                 placeholder="1234 Main St" required>
 
-                        </div>
+                        </div> <br>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
                             <input type="text" class="form-control mt-3" id="city" name="city" placeholder="Enter City"
                                 required>
-                        </div>
+                        </div> <br>
                         <div class="form-group col-md-6">
                             <label for="inputState">State</label>
                             <input type="email" class="form-control mt-3" id="state" name="state"
                                 placeholder="Enter City" required>
 
-                        </div>
+                        </div> <br>
                     </div>
-                    < class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputZip">Pin Code</label>
                             <input type="number" class="form-control mt-3" id="zip_code" name="zip_code" required>
-                        </div>
+                        </div> <br>
                         <div class="form-group col-md-6">
                             <label for="inputZip">phone Number</label>
                             <input type="number" class="form-control mt-3" id="phone" name="phone" required>
 
-                        </div>
+                        </div> <br>
+                    </div>
             </div>
             <br>
 

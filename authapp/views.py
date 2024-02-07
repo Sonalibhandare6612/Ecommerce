@@ -47,10 +47,10 @@ def signup(request):
         [email])
         #email_message.send()                 # for email activation
         messages.success(request, "Activate Your account by clicking link provided in gmail")
-        return redirect('authapp/login/')
-                
-    else:
         return render(request, "signup.html")
+                
+    
+    return render(request, "signup.html")
     
     
               
@@ -85,10 +85,10 @@ def handlelogin(request):
         
         else :
             messages.error(request, "Invalid credentials")
-            return redirect('authapp/login')
+            return render(request,"login.html")
         
         
-    #return render(request,"login.html")
+    return render(request,"login.html")
 
 
 
