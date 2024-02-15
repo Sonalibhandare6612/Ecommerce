@@ -5,6 +5,53 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+// scripts.js
+
+// Sample data for demonstration purposes
+const properties = [
+  { id: 1, name: 'Property 1', address: '123 Main St', location: 'City A' },
+  { id: 2, name: 'Property 2', address: '456 Elm St', location: 'City B' }
+];
+
+const tenants = [
+  { id: 1, name: 'John Doe', address: '789 Oak St' },
+  { id: 2, name: 'Jane Smith', address: '101 Pine St' }
+];
+
+// Function to render property list
+function renderPropertyList() {
+  const propertyList = document.getElementById('property-list');
+  propertyList.innerHTML = ''; // Clear existing list
+
+  properties.forEach(property => {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `<a href="/property/${property.id}/">${property.name}</a> - ${property.address}, ${property.location}`;
+      propertyList.appendChild(listItem);
+  });
+}
+
+// Function to render tenant list
+function renderTenantList() {
+  const tenantList = document.getElementById('tenant-list');
+  tenantList.innerHTML = ''; // Clear existing list
+
+  tenants.forEach(tenant => {
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `<a href="/tenant/${tenant.id}/">${tenant.name}</a> - ${tenant.address}`;
+      tenantList.appendChild(listItem);
+  });
+}
+
+// Render property list when the page loads
+window.onload = function() {
+  renderPropertyList();
+};
+
+
+
+
+
+
 (function() {
   "use strict";
 

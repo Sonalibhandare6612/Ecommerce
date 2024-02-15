@@ -1,8 +1,8 @@
 from django.contrib import admin
-from ecomapp.models import Contact , Product, Orders, OrderUpdate
+from ecomapp.models import Contact , Property, Unit, Tenant
 
 # Register your models here.
 admin.site.register(Contact)
-admin.site.register(Product)
-admin.site.register(Orders)
-admin.site.register(OrderUpdate)
+admin.site.register(Property)
+admin.site.register(Unit)
+admin.site.register(Tenant)

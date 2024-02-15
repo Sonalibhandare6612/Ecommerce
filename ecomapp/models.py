@@ -1,8 +1,32 @@
 from django.db import models
 
 # Create your models here.
+from django.db import models
 
-# Model table for Contact information
+class Property(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    location = models.CharField(max_length=100)
+    # Other fields as needed
+
+class Unit(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='units')
+    type_choices = [('1BHK', '1BHK'), ('2BHK', '2BHK'), ('3BHK', '3BHK'), ('4BHK', '4BHK')]
+    type = models.CharField(max_length=4, choices=type_choices)
+    rent_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    # Other fields as needed
+
+class Tenant(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    agreement_end_date = models.DateField()
+    monthly_rent_date = models.PositiveSmallIntegerField()
+    # Other fields as needed
+
+
+# # Model table for Contact information
 class Contact(models.Model):
     name=models.CharField(max_length=50)
     email=models.EmailField()
@@ -16,50 +40,4 @@ class Contact(models.Model):
         return self.name
     
     
-    
-    
-class Product(models.Model):
-    product_id = models.AutoField   
-    product_name = models.CharField(max_length=100)    
-    category = models.CharField(max_length=100, default="")    
-    subcategory = models.CharField(max_length=50, default="")    
-    price = models.IntegerField(default=0)    
-    desc = models.CharField(max_length=300) 
-    image = models.ImageField(upload_to='images/images', default="") # to upload images install pillow
-    
-    def __str__(self):
-        return self.product_name    
-    
-    
-class Orders(models.Model):
-    order_id = models.AutoField(primary_key=True)
-    items_json = models.CharField(max_length = 5000)
-    amount = models.IntegerField(default = 0)
-    name = models.CharField(max_length = 90)
-    email = models.EmailField(max_length = 90)
-    address1 = models.CharField(max_length = 200)    
-    address2 = models.CharField(max_length = 200)    
-    city = models.CharField(max_length = 100)    
-    state = models.CharField(max_length = 100)    
-    zip_code = models.IntegerField()    
-    oid = models.CharField(max_length = 50, blank = True)    
-    amountpaid = models.CharField(max_length = 500, blank = True, null = True)    
-    paymentstatus = models.CharField(max_length = 20, blank = True)    
-    phone = models.CharField(max_length = 100, default = "")
-    
-    def __str__(self):
-        return self.name
-
-
-
-class OrderUpdate(models.Model):
-    update_id = models.AutoField(primary_key=True)
-    order_id = models.IntegerField(default="")
-    update_desc = models.CharField(max_length = 5000)
-    delivered = models.BooleanField(default = False)
-    timestamp = models.DateField(auto_now_add = True)
-    
-    
-    def __str__(self):
-        return self.update_desc[0:7] + "..."
-            
+           

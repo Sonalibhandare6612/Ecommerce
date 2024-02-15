@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}   
+
+
+
+
+{% block content %}
+
+<h1>Tenant List</h1>
+    <ul id="tenant-list">
+        {% for tenant in tenants %}
+            <li><a href="{% url 'tenant_detail' tenant.pk %}">{{ tenant.name }}</a></li>
+        {% endfor %}
+    </ul>
+    </ul>
+
+
+{% endblock content %}
+
+
+
